@@ -1,0 +1,30 @@
+{{ define "head" }}
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+	let ipvids = {{.Params.ipvids}}
+	window.onload = function () {
+		for (const ipvid of ipvids) {
+			let video = document.getElementById(ipvid.id + "");
+			let videoSrc = ipvid.url;
+			if (Hls.isSupported()) {
+				let hls = new Hls();
+				hls.loadSource(videoSrc);
+				hls.attachMedia(video);
+			} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+				video.src = videoSrc;
+			}
+		}
+	}
+</script>
+{{end}}
+
+{{ define "body"}}
+<div class="flex">
+	{{ partial "nav" . }}
+	<div class="flex-grow">
+		<h1 class="text-2xl">{{.Title}}</h1>
+		<hr class="my-1">
+		{{ .Content }}
+	</div>
+</div>
+{{end}}

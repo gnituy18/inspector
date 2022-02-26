@@ -1,0 +1,9 @@
+<nav>
+	<ul class="w-32 border-r">
+		{{range .Site.Data.politicians}}
+		<li class="flex-1  pl-2 py-1 hover:bg-slate-50 hover:pointer">
+			<a class="inline-block w-full" href="/{{.}}">{{.}}</a>
+		</li>
+		{{end}}
+	</ul>
+</nav>

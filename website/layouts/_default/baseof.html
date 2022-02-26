@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta charset="utf-8">
+	{{ $style := resources.Get "css/style.css" | resources.PostCSS }}
+	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+	<title> {{ block "title" . }} Inspector Taiwan {{ end }} </title>
+	{{ block "head" . }} {{ end }}
+</head>
+
+<body> {{ block "body" . }} body {{ end }} </body>
+
+</html>

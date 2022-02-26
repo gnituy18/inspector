@@ -1,0 +1,7 @@
+{{ $id := .Get `id`}}
+{{ $title := .Get `title`}}
+<div class="m-4">
+	<h2>{{ $title }}</h2>
+	<video width="320" height="240" controls id="{{$id}}"></video>
+</div>
+<hr class="my-4">
